@@ -1,0 +1,36 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>الرئيسية</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <!-- أماكن الإدراج -->
+  <div id="header"></div>
+  <div id="hero"></div>
+
+  <main>
+    <h2>محتوى الصفحة الرئيسية</h2>
+    <p>هذا هو المحتوى.</p>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+    async function loadComponent(id, filePath) {
+      const el = document.getElementById(id);
+      const res = await fetch(filePath);
+      const html = await res.text();
+      el.innerHTML = html;
+    }
+
+    loadComponent("header", "components/header.html");
+    loadComponent("footer", "components/footer.html");
+    loadComponent("hero", "components/hero.html");
+  </script>
+
+</body>
+</html>
